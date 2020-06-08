@@ -1,0 +1,22 @@
+[flake8]
+exclude = .git,.tox,__pycache__,.eggs,build,*.html, venv/, tmp.py, *.pyc,
+max-line-length = 140
+ignore =
+    # E251 unexpected spaces around keyword / parameter equals
+    E251,
+    # E265 block comment should start with '# '
+    E265,
+    # E266 too many leading '#' for block comment
+    E266,
+    # E402 module level import not at top of file
+    E402,
+    # E722 do not use bare except
+    E722,
+    # W504 line break before binary operator
+    W504,
+    #E501, line too long
+    E501,
+    #W605 invalid escape sequence '\/'
+    W605
+
+doctests = true

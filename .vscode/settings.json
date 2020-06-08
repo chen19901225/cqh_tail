@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "/home/vagrant/envs/default/bin/python",
+    "terminal.integrated.env.linux": {
+        "PROJROOT": "${workspaceRoot}",
+        "PYTHONPATH": "${workspaceRoot}"
+    },
+}
