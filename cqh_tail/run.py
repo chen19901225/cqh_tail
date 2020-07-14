@@ -250,11 +250,12 @@ def main(argv=None):
         convert_args = parser.parse_args()
     import os
     pwd = os.getcwd()
-    print("cwd:{}".format(pwd))
+    # print("cwd:{}".format(pwd))
     pattern = convert_args.pattern
     if pattern.index('/') == -1:
         pattern = pwd.rstrip('/') + '/'
     pattern = os.path.expanduser(pattern)
+    print("pattern:{}".format(pattern))
 
     line_filter = convert_args.line_filter
     re_line_filter = None
