@@ -233,8 +233,22 @@ class LogWatcher(object):
 # ===================================================================
 # --- tests
 # ===================================================================
+example_string = """
+Examples:
+
+1. simple filter log
+
+    cqh_tail --pattern=~/**/*.log
+
+2. watch dir and filter
+
+    cqh_tail --pattern=~/**/*.log --line-filter="\.general/"
+
+"""
 parser = argparse.ArgumentParser('cqh_tail',
-                                 description='tail ')
+                                 description='tail ',
+                                 formatter_class=argparse.RawDescriptionHelpFormatter,
+                                 epilog=example_string)
 parser.add_argument('--pattern', dest='pattern',
                     help='glob pattern', required=True)
 parser.add_argument('-n', '--count', dest='count',
