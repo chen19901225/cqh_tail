@@ -245,6 +245,20 @@ Examples:
     cqh_tail --pattern=~/**/*.log --line-filter="\.general/"
 
 """
+
+
+_dir = os.path.dirname(
+    os.path.abspath(__file__)
+)
+init_path = os.path.join(_dir, '__init__.py')
+
+def read_version():
+    d = {}
+    code = open(init_path).read()
+    code = compile(code, '<string>', 'exec', dont_inherit=True)
+    exec(code, d, d)
+    return d['__version__']
+
 parser = argparse.ArgumentParser('cqh_tail',
                                  description='tail ',
                                  formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -255,6 +269,7 @@ parser.add_argument('-n', '--count', dest='count',
                     default=10, help='tail count')
 parser.add_argument('--encode', dest='encode', default='utf-8')
 parser.add_argument('--line-filter', dest='line_filter', help='regex for line filter')
+parser.add_argument("--version", action="version", version=read_version())
 
 
 def main(argv=None):
