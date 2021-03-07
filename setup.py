@@ -28,7 +28,7 @@ setuptools.setup(
     author_email="1832866299@qq.com",
     description="tail -F ",
     long_description=long_description,
-    url="https://github.com/chen19901225/cqh_file_watcher",
+    url="https://github.com/chen19901225/cqh_tail",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
