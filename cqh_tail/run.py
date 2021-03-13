@@ -294,8 +294,8 @@ def main(argv=None):
     def filter_line(prefix_line, line):
         def echo(line):
             if prefix_line:
-                print(prefix_line)
-            print(line)
+                print(prefix_line, flush=True)
+            print(line, flush=True)
         if not re_line_filter:
             echo(line)
         else:
@@ -308,8 +308,18 @@ def main(argv=None):
     def echo(name, lines):
         prefix_line = name.center(80, '=')
         for line in lines:
+            if not line:
+                continue
+
             if isinstance(line, bytes):
-                line = line.decode(convert_args.encode)
+                try:
+                    line = line.decode(convert_args.encode)
+                except Exception:
+                    print(" fail to decode{!r}".format(line))
+                    raise
+
+
+
             line = line.rstrip("\n")
             prefix_line = filter_line(prefix_line, line)
             # generated_by_dict_unpack: convert_args
